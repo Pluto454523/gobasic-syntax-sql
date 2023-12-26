@@ -34,16 +34,28 @@ func Function() {
 	println(ArrayP2)
 }
 
-// ** เมื่อส่ง function ใดๆที่ signature เหมือนกันกับ parameter
-// ** cal จะเรียก function นั้นแล้ว ส่งค่า 10,6 ไป และ return ค่าไปที่ตัวแปร sum
-// ** like-Callback
-// ** (func) int
+// ** signature หรือ function type
+// ** Parameter(string, string) return(string, string)
+func swap(x, y string) (a string, b string) {
+	a = y
+	b = x
+	return a, b
+}
+
+// ** (float64, float64) float64
+func compute(fn func(float64, float64) float64) float64 {
+	// ** Function Callback ส่ง Function กลับคืนไป
+	return fn(3, 4)
+}
+
+// ** (func(int, int) int) (ไม่มี reuturn)
 func cal(f func(int, int) int) {
+	// ** เมื่อส่ง function ใดๆที่ signature เหมือนกันกับ parameter
+	// ** cal จะเรียก function นั้นแล้ว ส่งค่า 10,6 ไป และ return ค่าไปที่ตัวแปร sum
 	sum := f(10, 6)
 	println(sum)
 }
 
-// ** signature หรือ function type =
 // ** (int,int) int
 func add(a, b int) int {
 	return a + b

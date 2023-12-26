@@ -12,9 +12,9 @@ func main() {
 	fmt.Printf("========== Welcome to %v ==========\n", testGlobal) //**แสดง package variable
 
 	// syntax.FormatPrint()
-	syntax.Function()
+	// syntax.Function()
 	// syntax.ArrayLoopTutorial()
-	// syntax.MapTutorial()
+	syntax.MapTutorial()
 	// syntax.PointerTutorial()
 
 	// ** Struct ธรรมดา
