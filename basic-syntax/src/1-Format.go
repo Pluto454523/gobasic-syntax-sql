@@ -7,8 +7,10 @@ import (
 
 func FormatPrint() {
 
-	var numVar int = 10
+	// TODO => ใน go ไม่มีค่า null มีแต่ zero value ของแต่ละ type
+	var numVar int // ? ไม่ได้กำหนดค่าให้, จะมีค่า zero value ของ int คือ 0
 	numFloat := 15.589
+	numVar = 10
 	fmt.Printf("numFloat = %.0f\n", numFloat) //** formath percision
 	fmt.Printf("numVar = %v\n", numVar)
 

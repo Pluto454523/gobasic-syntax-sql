@@ -14,8 +14,8 @@ func main() {
 	// syntax.FormatPrint()
 	// syntax.Function()
 	// syntax.ArrayLoopTutorial()
-	syntax.MapTutorial()
-	// syntax.PointerTutorial()
+	// syntax.MapTutorial()
+	syntax.PointerTutorial()
 
 	// ** Struct ธรรมดา
 	// syntax.StructTutorial()
@@ -24,5 +24,15 @@ func main() {
 	// x := syntax.Person{}
 	// x.SetName("PLUTo")
 	// fmt.Printf("%#v", x.GetName())
+
+	// ********************
+	// ** Pointer Struct **
+	// ********************
+	fmt.Println("\n[ Pointer Struct ]")
+	d := &course{" Basic Go", "Nawin K", 9999}
+
+	e := d.discount() // เข้าถึงค่าในตัวแปรเหมือนเดิมไม่ต้อง de-reference อีกที
+	fmt.Println(" discount price:", e)
+	fmt.Println(" price:", d.price)
 
 }

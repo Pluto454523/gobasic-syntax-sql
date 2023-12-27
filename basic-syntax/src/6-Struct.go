@@ -15,6 +15,18 @@ func (p *Person) SetName(name string) { //** ใช้หลักการ Reci
 	p.name = name
 }
 
+type course struct {
+	name, instructor string
+	price            int
+}
+
+// ** Reciver(c *course) (nil) (nil)
+func (c *course) discount() int {
+	c.price = c.price - 599
+	fmt.Println(" discount:", c.price)
+	return c.price
+}
+
 func StructTutorial() {
 
 	x := Person{
@@ -31,5 +43,15 @@ func StructTutorial() {
 	// println(&x)
 
 	fmt.Printf("%#v ", x.name)
+
+	// ********************
+	// ** Pointer Struct **
+	// ********************
+	fmt.Println("\n[ Pointer Struct ]")
+	d := &course{" Basic Go", "Nawin K", 9999}
+
+	e := d.discount() // เข้าถึงค่าในตัวแปรเหมือนเดิมไม่ต้อง de-reference อีกที
+	fmt.Println(" discount price:", e)
+	fmt.Println(" price:", d.price)
 
 }
