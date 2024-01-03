@@ -25,6 +25,7 @@ func PointerTutorial() {
 	// ***********************
 	// ** Pass by reference **
 	// ***********************
+	// x := 0
 	x := 0
 	y := &x // ? => y จะถูกกำหนดค่าเป็น address ของ x และ type y = *int(pointer of int)
 	x = 50

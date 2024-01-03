@@ -3,7 +3,7 @@ package basicSyntax
 func Function() {
 
 	// ? การรับค่า return จาก function สามารถรับได้หลาย return
-	// a, _, b := sum(10, 5)
+	// a, b, c := sum(10, 5)
 	// fmt.Printf("a = %#v \nb = %#v", a, b)
 
 	// ? Anonymous function
@@ -32,14 +32,17 @@ func Function() {
 	// ? Array parameter แบบที่ 2
 	ArrayP2 := sumArray2(1, 2, 3, 4, 5, 6, 7, 8, 9)
 	println(ArrayP2)
+
+	swap("a", "b")
 }
 
 // ** signature หรือ function type
 // ** Parameter(string, string) return(string, string)
-func swap(x, y string) (a string, b string) {
-	a = y
-	b = x
-	return a, b
+func swap(x, y string) (a int) {
+	// a = y
+	// b = x
+	// return a, b
+	return 500
 }
 
 // ** (float64, float64) float64

@@ -1,57 +1,68 @@
 package basicSyntax
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type Person struct {
+type person struct {
 	name string
 	age  int
 }
 
-func (p Person) GetName() string { //** ใช้หลักการ Reciver ในการทำ Method แบบ OOP
+func NewPerson(name string, age int) person {
+	return person{name, age}
+}
+
+// ** Receiver method has argument type Person
+// ** Argument(c *Person) parameter(string) return(nil)
+func (p person) GetName() string {
 	return p.name
 }
 
-func (p *Person) SetName(name string) { //** ใช้หลักการ Reciver ในการทำ Method แบบ OOP
+// ** Receiver method has argument type Person
+// ** Argument(c *Person) parameter(string) return(nil)
+func (p *person) SetName(name string) {
 	p.name = name
-}
-
-type course struct {
-	name, instructor string
-	price            int
-}
-
-// ** Reciver(c *course) (nil) (nil)
-func (c *course) discount() int {
-	c.price = c.price - 599
-	fmt.Println(" discount:", c.price)
-	return c.price
 }
 
 func StructTutorial() {
 
-	x := Person{
-		name: "PLUTO",
+	fmt.Println("\n[ Struct V.1 ]")
+	x := person{
+		name: "xPLUTo K",
 		age:  20,
 	}
+	fmt.Printf("x = %T\n", x)
+	fmt.Printf(" x.name = %v\n", x.name)
+	x.SetName("xNawin K")
+	fmt.Printf(" x.name = %v\n\n", x.GetName())
 
-	// y := x //** Pass by Vaule
-	// println(&y)
-	// println(&x)
+	// ** Pass by Value
+	// y := x // ** y is Struct Person is not pointer struct
+	// fmt.Printf("y = %T\n", y)
+	// y.SetName("yPLUTO K")
+	// fmt.Printf(" y.name = %v\n", y.name)
+	// fmt.Printf(" x.name = %v\n", x.GetName())
+	// fmt.Printf(" y.name = %v\n\n", y.GetName())
 
-	// z := &x //** Pass by Ref
-	// println(z)
-	// println(&x)
+	// ** Pass by Ref
+	// z := &y // ** Z is pointer of y(Struct Person).
+	// fmt.Printf("z = %T(%p)\n", z, z)
+	// z.name = "zNawin K"
 
-	fmt.Printf("%#v ", x.name)
+	// println(x.name)
+	// println(y.name)
+	// println(z.name)
 
-	// ********************
-	// ** Pointer Struct **
-	// ********************
-	fmt.Println("\n[ Pointer Struct ]")
-	d := &course{" Basic Go", "Nawin K", 9999}
+	fmt.Printf(" address x = %p\n", &x)
 
-	e := d.discount() // เข้าถึงค่าในตัวแปรเหมือนเดิมไม่ต้อง de-reference อีกที
-	fmt.Println(" discount price:", e)
-	fmt.Println(" price:", d.price)
+	//** Pass by Vaule
+	a := x // TODO => a store value form x
+	fmt.Printf(" address a(value) = %p\n", &a)
+
+	// ** Pass by Ref
+	b := &x // TODO => b is pointer store address x
+	fmt.Printf(" address b(ref) = %p\n", b)
+	fmt.Println("")
 
 }
