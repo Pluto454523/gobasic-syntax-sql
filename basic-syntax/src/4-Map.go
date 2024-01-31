@@ -12,6 +12,7 @@ func MapTutorial() {
 	fmt.Println(countries["en"])
 
 	country, msgCountry := countries["asd"]
+	
 	if msgCountry {
 		fmt.Println(country)
 	} else {
@@ -25,6 +26,7 @@ func MapTutorial() {
 		400: "Bad Request",
 		500: "Internal Server Error",
 	}
+
 	fmt.Printf("% #v\n", status)
 
 	l := len(status)

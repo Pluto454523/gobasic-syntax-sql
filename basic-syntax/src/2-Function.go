@@ -38,11 +38,10 @@ func Function() {
 
 // ** signature หรือ function type
 // ** Parameter(string, string) return(string, string)
-func swap(x, y string) (a int) {
-	// a = y
-	// b = x
-	// return a, b
-	return 500
+func swap(x, y string) (a string, b string) {
+	a = y
+	b = x
+	return a, b
 }
 
 // ** (float64, float64) float64

@@ -27,8 +27,10 @@ func ArrayLoopTutorial() {
 
 	// ! ทำได้ แต่จะมีสามารถ assign ได้เนื่องจาก ยังไม่มี array ตำแหน่งที่ 10
 	//arrayA[10] = 4
+
 	// ! ไม่ใช้นับจำนวน String เพราะภาษาอื่นมี byte ไม่เท่ากัน
 	//len(arrayA)
+
 	// TODO แนะนำให้ใช้ utf8.RuneCountInString ในการนับ String
 	//tf8.RuneCountInString("ฟหกฟหก")
 	fmt.Printf("arrayA = %#v \nlen arrayA = %#v \n", arrayA, len(arrayA))
