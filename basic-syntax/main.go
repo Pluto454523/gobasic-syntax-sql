@@ -15,8 +15,8 @@ func main() {
 
 	fmt.Printf("========== Welcome to %v ==========\n", testGlobal) //**แสดง package variable
 
-	// syntax.FormatPrint()
-	syntax.Function()
+	syntax.FormatPrint()
+	// syntax.Function()
 	// syntax.ArrayLoopTutorial()
 	// syntax.MapTutorial()
 	// syntax.PointerTutorial()

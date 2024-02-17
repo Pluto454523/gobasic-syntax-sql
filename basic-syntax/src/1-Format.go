@@ -88,4 +88,10 @@ func FormatPrint() {
 	// s := fmt.Sprintf("sprintf: a %s", "string")
 	// fmt.Println(s)
 	// fmt.Fprintf(os.Stderr, "io: an %s\n", "error")
+
+	num1 := 10
+	num2 := 20
+	if sumNum := num1 + num2; sumNum >= 30 {
+		fmt.Println(sumNum)
+	}
 }
