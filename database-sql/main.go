@@ -18,48 +18,78 @@ var db *sqlx.DB
 func main() {
 
 	var err error
-	// db, err = sql.Open("mysql", "root:!Poasd@01456@tcp(127.0.0.1:3306)/gobaisc_db")
-	db, err = sqlx.Open("mysql", "root:!Poasd@01456@tcp(127.0.0.1:3306)/gobaisc_db")
+	// db, err = sql.Open("mysql", "root:170745*@tcp(127.0.0.1:3306)/gobaisc_db")
+	db, err = sqlx.Open("mysql", "root:170745*@tcp(localhost:3306)/gobaisc_db")
 	if err != nil {
 		panic(err)
 	}
 
 	// ** INSERT
-	// infoCustomer := Customer{
-	// 	Name:     "Pannawat",
-	// 	LastName: "Imsin",
+	// infoCustomers := []Customer{
+	// 	{
+	// 		CustomerID: 1,
+	// 		Fname:      "Nawin",
+	// 		Lname:      "Khamchun",
+	// 	},
+	// 	{
+	// 		CustomerID: 2,
+	// 		Fname:      "Pannawat",
+	// 		Lname:      "Imsin",
+	// 	},
+	// 	{
+	// 		CustomerID: 3,
+	// 		Fname:      "Thanapat",
+	// 		Lname:      "Rattanasang",
+	// 	},
 	// }
-	// err = AddCustomer(infoCustomer)
+	// for _, v := range infoCustomers {
+	// 	err = AddCustomer(v)
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
+	// 	fmt.Printf("Insert %v %v success.\n", v.Fname, v.Lname)
+	// }
 
 	// ** UPDATE
 	// infoCustomer := Customer{
-	// 	Name: "Nawin",
-	// 	Id:   1,
+	// 	CustomerID: 1,
+	// 	Fname:      "Nawin Update",
 	// }
 	// err = UpdateCustomer(infoCustomer)
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 	// ** DELETE
-	// err = DeleteCustomer(2)
-
+	// err = DeleteCustomer(3)
 	// if err != nil {
 	// 	fmt.Println(err)
 	// }
 
 	// ** SELECt ALL
-	// customers, err := GetCustomerX()
+	// customers, err := GetCustomerX() // TODO: customers is slice(pass by reference)
 	// if err != nil {
 	// 	fmt.Println(err)
 	// }
 	// for _, v := range customers {
 	// 	fmt.Printf("%#v\n", v)
 	// }
+	// newCustomers := customers // TODO: newCustomers recive address from customers
+	// newCustomers[0] = Customer{
+	// 	Fname: "Nobi",
+	// 	Lname: "Nobita",
+	// }
+	// fmt.Println(customers[0])
 
 	// ** SELECT BY ID
-	// dataByID, err := GetCustomerXById(3)
+	// dataByID, err := GetCustomerXById(1) // TODO: dataByID is pointer(pass by reference)
 	// if err != nil {
 	// 	panic(err)
 	// }
-	// fmt.Printf("%#v", dataByID)
+	// fmt.Printf("%#v\n", dataByID)
+	// newData := dataByID // TODO: newData recive address from dataByID
+	// newData.Fname = "newData Pointer"
+	// fmt.Printf("%v\n", dataByID)
 }
 
 func GetCustomerX() ([]Customer, error) {
@@ -143,8 +173,8 @@ func AddCustomer(customer Customer) error {
 		return err
 	}
 
-	query := "INSERT INTO customer(fname,lname) VALUES(?,?)"
-	result, err := tx.Exec(query, customer.Fname, customer.Lname)
+	query := "INSERT INTO customer(CustomerID, fname,lname) VALUES(?,?,?)"
+	result, err := tx.Exec(query, customer.CustomerID, customer.Fname, customer.Lname)
 	if err != nil {
 		return err
 	}
