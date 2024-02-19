@@ -17,14 +17,15 @@ func main() {
 
 	fmt.Printf("========== Welcome to %v ==========\n", testGlobal) //**แสดง package variable
 
-	basicSyntax.FormatTutorial()
-	// basicSyntax.FunctionTutorial()
+	// basicSyntax.FormatTutorial()
+	basicSyntax.FunctionTutorial()
 	// basicSyntax.ArrayLoopTutorial()
 	// basicSyntax.MapTutorial()
 	// basicSyntax.PointerTutorial()
 
 	// ** Struct ธรรมดา
 	// basicSyntax.StructTutorial()
+
 	// ** Struct แบบ OOP
 	// constructorTutorial()
 

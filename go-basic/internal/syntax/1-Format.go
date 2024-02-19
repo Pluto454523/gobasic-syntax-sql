@@ -8,7 +8,7 @@ import (
 
 func FormatTutorial() {
 
-	// TODO => ใน go ไม่มีค่า null มีแต่ zero value ของแต่ละ type
+	// TODO => ใน go ไม่มีค่า nil ของแต่ละ type มีแต่ zero value ของแต่ละ type
 	var numVar int // ? ไม่ได้กำหนดค่าให้, จะมีค่า zero value ของ int คือ 0
 	numFloat := 15.589
 	numVar = 10
@@ -89,4 +89,13 @@ func FormatTutorial() {
 	s := fmt.Sprintf("sprintf: a %s", "string")
 	fmt.Println(s)
 	fmt.Fprintf(os.Stderr, "io: an %s\n", "error")
+
+	// ***************************************************
+	// ** Pre process if else
+	// ** sumNum อยู่แค่ใน scope if else ไม่สามาถรเรียกใช้ข้างนอกได้
+	// ***************************************************
+	num1, num2 := 10, 20
+	if sumNum := num1 + num2; sumNum >= 30 {
+		fmt.Println(sumNum)
+	}
 }
