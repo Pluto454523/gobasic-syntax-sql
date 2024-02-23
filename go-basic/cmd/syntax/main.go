@@ -15,7 +15,7 @@ var testGlobal string = "Golang basic Tutorial"
 
 func main() {
 
-	fmt.Printf("========== Welcome to %v ==========\n", testGlobal) //**แสดง package variable
+	fmt.Printf("[ ### Welcome to %v ### ]\n", testGlobal)
 
 	// basicSyntax.FormatTutorial()
 	basicSyntax.FunctionTutorial()
