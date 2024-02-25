@@ -3,12 +3,13 @@ package syntax
 import (
 	"fmt"
 	"os"
+	"strings"
 	"unicode/utf8"
 )
 
-func FormatTutorial() {
+func VariableTutorial() {
 
-	// TODO => ใน go ไม่มีค่า nil ของแต่ละ type มีแต่ zero value ของแต่ละ type
+	//** ใน go ไม่มี nil ของแต่ละ type โดยค่าเริ่มต้นของแต่ละ type มีแต่ zero value
 	var numVar int // ? ไม่ได้กำหนดค่าให้, จะมีค่า zero value ของ int คือ 0
 	numFloat := 15.589
 	numVar = 10
@@ -18,14 +19,16 @@ func FormatTutorial() {
 	//** CONSTAIN : ค่าคงที่
 	const NumberConst int = 50
 	fmt.Printf("NumberConst = %v\n", NumberConst)
+
+	//** การกำหนดค่า CONSTAIN สำหรับวันในสัปดาห์โดยใช้ iota
 	const (
-		Sunday = iota
-		Monday
-		Tuesday
-		Wednesday
-		Thursday
-		Friday
-		Saturday
+		Sunday    = iota // 0
+		Monday           // 1 (iota ถูกใช้โดยอัตโนมัติ จะเพิ่มขึ้นทีละ 1)
+		Tuesday          // 2
+		Wednesday        // 3
+		Thursday         // 4
+		Friday           // 5
+		Saturday         // 6
 	)
 
 	fmt.Println("Sunday :", Sunday)
@@ -36,12 +39,18 @@ func FormatTutorial() {
 	fmt.Println("Friday :", Friday)
 	fmt.Println("Saturday :", Saturday)
 
-	// TODO: How to count lenght "UTF-8" string
-	testString := "ฟหก"
-	// **: นับได้ แต่ๆ ใช้กับภาษาไทยไม่เวิร์ค
-	fmt.Println(len(testString))
-	// **: ใช้วิธีนี้ในการนับ String ภาษาไทย
-	fmt.Printf(testString+" Count is %v\n\n", utf8.RuneCountInString(testString))
+	//** การนับ string ภาษาไทยและอื่นๆ
+
+	//** นับได้ แต่ๆ ใช้กับภาษาไทยไม่เวิร์ค
+	str := "สวัสดีวันจันทร์"
+	fmt.Println(len(str))
+
+	//** ใช้วิธีนี้ในการนับ String ภาษาไทย
+	fmt.Printf(str+" Count is %v\n\n", utf8.RuneCountInString(str))
+
+	//** การแยก String เป็น Array
+	arrStr := strings.Split(str, "")
+	fmt.Println(len(arrStr))
 
 	// ** รูปแบบต่างๆของการ format
 	p := [2]int{1, 2}
@@ -89,13 +98,4 @@ func FormatTutorial() {
 	s := fmt.Sprintf("sprintf: a %s", "string")
 	fmt.Println(s)
 	fmt.Fprintf(os.Stderr, "io: an %s\n", "error")
-
-	// ***************************************************
-	// ** Pre process if else
-	// ** sumNum อยู่แค่ใน scope if else ไม่สามาถรเรียกใช้ข้างนอกได้
-	// ***************************************************
-	num1, num2 := 10, 20
-	if sumNum := num1 + num2; sumNum >= 30 {
-		fmt.Println(sumNum)
-	}
 }

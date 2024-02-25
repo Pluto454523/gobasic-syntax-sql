@@ -6,25 +6,19 @@ import (
 
 func PointerTutorial() {
 
-	// *******************
 	// ** Pass by vaule **
-	// *******************
 	a := 3
 	b := a
 	fmt.Println("[ Pass by vaule ]")
 	fmt.Println(" a =", a)
 	fmt.Println(" b =", b)
 
-	// ****************************
 	// ** Pass by vaule Function **
-	// ****************************
 	c := 0
 	sumByValue(c)                               // ? => ถ้า pass by reference ตัวแปร c จะเท่ากับ 100
 	fmt.Println(" Pass by vaule Function =", c) // * c = 0
 
-	// ***********************
 	// ** Pass by reference **
-	// ***********************
 	// x := 0
 	x := 0
 	y := &x // ? => y จะถูกกำหนดค่าเป็น address ของ x และ type y = *int(pointer of int)
@@ -48,9 +42,7 @@ func PointerTutorial() {
 	var test2 ***int = &test // TODO => การประกาศตัวแบบเต็ม
 	fmt.Printf(" test2 = %#v\n\n", test2)
 
-	// ********************************
 	// ** Pass by reference Function **
-	// ********************************
 	z := 0
 	sumByRef(&z)
 	fmt.Println(" Pass by reference Function =", z) // * z = 10
